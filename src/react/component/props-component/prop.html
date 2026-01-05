@@ -1,0 +1,63 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<div id="root"></div>
+
+<body>
+    <script type="text/babel">
+
+        //postItem.js
+        function PostItem(prop) {
+            return (
+                <div className="post-item">
+                    <img src={prop.img}
+                    />
+
+                    <h2 className="post-title">{prop.title}</h2>
+                    <p className="post-desc">{prop.descreption}</p>
+                    <p className="post-published">{prop.published}</p>
+                </div>
+            );
+        }
+
+
+        //App.js
+        function App() {
+            return (
+                <div id="wrapper">
+                    <PostItem
+                        img="https://vnskills.edu.vn/wp-content/uploads/2023/03/Javascript-la-gi-1.jpg"
+                        title="Hello world đây là ngôn ngữ JavaScript"
+                        descreption="Bạn có kiến thức JavaScript. Bạn muốn thực hiện với HTML"
+                        published="Đã truy cập 5 phút trước"
+                    />
+                    <PostItem
+                        img="https://mona.media/wp-content/uploads/2021/07/css.png"
+                        title="Hello world đây là ngôn ngữ Css"
+                        descreption="Bạn có kiến thức về Css. Bạn muốn thực hiện với HTML để có thể giúp trang web đẹp hơn"
+                        published="Đã truy cập 1 tiếng trước trước"
+                    />
+                    <PostItem />
+                </div>
+            )
+        }
+
+
+        //index.js
+        const container = document.getElementById("root");
+        const root = ReactDOM.createRoot(container);
+        root.render(<App />);
+
+
+    </script>
+</body>
+
+</html>

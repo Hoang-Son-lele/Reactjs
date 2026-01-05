@@ -1,0 +1,49 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+</head>
+
+<body>
+
+    <!--
+    1.Tại sao phải sử dụng React-Dom?
+    2.Tại sao lại tách React-Dom ra?
+    3.Render UI
+    -->
+    <div id="root"></div>
+    <script>
+
+        const divEle = React.createElement("div",
+            {
+                className: "post-item"
+            },
+            React.createElement("h2",
+                {
+                    title: "Học React tại F8"
+                },
+                "Học React JS"
+            ),
+            React.createElement("p", null, "Học ReactJS từ cơ bản đến nâng cao")
+
+        )
+
+        //React 18
+
+        //get root element
+
+        const container = document.getElementById("root");
+        //ReactDOM -> render UI
+        const root = ReactDOM.createRoot(container);
+        root.render(divEle)
+        //(element, container,callback)
+    </script>
+
+
+</body>
+
+</html>
