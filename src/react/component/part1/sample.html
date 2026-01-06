@@ -41,12 +41,45 @@
                 }
             ];
 
+            return (
+                <div>
+                    {posts.map((value) =>
+                        <PostItem
+                            id={value.id}
+                            img={value.img}
+                            title={value.title}
+                            description={value.description}
+                            published={value.published}
+                            isNew={value.isNew}
+
+                        />
+                    )}
+                </div>
+            )
+
+
         }
 
 
-        function PostItem(porps) {
+        function PostItem({ id, img, title, description, published, isNew }) {
 
+            return (
+                <div className="post-item">
+                    <img src={img !== undefined ? img : undefined} alt={title} />
+                    <h2 >{title}</h2>
+                    <p >{description}</p>
+                    <p >{published}</p>
+                    <p >{isNew === true ? <span> 🆕 </span> : undefined} </p>
+                </div>
+            )
         }
+
+        const helloElement = document.getElementById("root");
+
+        const root = ReactDOM.createRoot(helloElement);
+        root.render(<App />);
+
+
 
 
     </script>

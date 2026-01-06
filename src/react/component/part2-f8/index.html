@@ -1,0 +1,76 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello world</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const posts = [
+            {
+                id: 1,
+                title: "React là gì?",
+                description: "Thư viện xây dựng UI",
+                img: "",
+                published: "5 phút trước",
+                isNew: true
+            },
+            {
+                id: 2,
+                title: "JavaScript ES6",
+                description: "Arrow function, destructuring",
+                img: "https://vnskills.edu.vn/wp-content/uploads/2023/03/Javascript-la-gi-1.jpg",
+                published: "1 giờ trước",
+                isNew: false
+            },
+            {
+                id: 3,
+                title: "HTML & CSS",
+                description: "Nền tảng frontend",
+                img: null,
+                published: "1 ngày trước",
+                isNew: true
+            }
+        ];
+
+        function App() {
+            return (
+                <div className="app-item">
+                    {posts.map((value) => (
+                        <PostItem
+                            value={value}
+                        />
+                    ))}
+                </div>
+            )
+        }
+
+        function PostItem({ value }) {
+            return (
+                <div>
+                    <h2>{value.title}</h2>
+                    <p>{value.description}</p>
+                    <p>{value.published}</p>
+                    <img src={value.img !== null ? value.img : null} alt={value.title} />
+                    <p>{value.isNew === true ? <span> "New"</span> : null}</p>
+                </div>
+
+            )
+        }
+
+        const rootElement = document.getElementById("root");
+        const root = ReactDOM.createRoot(rootElement);
+        root.render(<App />);
+
+    </script>
+</body>
+
+</html>
