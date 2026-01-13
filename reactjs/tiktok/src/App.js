@@ -21,17 +21,15 @@ function App() {
 
 export default App;
 */
-import { useState } from "react";
 
+import Content from "./f8/useEffect";
 function App() {
-  const [info, setInfo] = useState(
-  );
 
 
   return (
     <div className="App">
 
-
+      <Content></Content>
 
     </div>
   );
