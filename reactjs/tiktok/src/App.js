@@ -24,27 +24,14 @@ export default App;
 import { useState } from "react";
 
 function App() {
-  const [info, setInfo] = useState({
-    name: "Son",
-    age: 18,
-    address: "Ha noi"
-  });
+  const [info, setInfo] = useState(
+  );
 
-  const updateProfile = () => {
-    setInfo({
-      ...info,
-      sport: "Table tennis"
-    }
-
-    )
-  }
 
   return (
     <div className="App">
 
-      <h1>{JSON.stringify(info)}</h1>
 
-      <button onClick={updateProfile}> Update profile</button>
 
     </div>
   );
