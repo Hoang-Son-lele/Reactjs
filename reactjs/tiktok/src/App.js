@@ -22,7 +22,7 @@ function App() {
 export default App;
 */
 
-import Content from "./f8/useEffect";
+import Content from "./practive/useState";
 function App() {
 
 
