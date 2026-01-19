@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { Component, useEffect, useState } from "react";
 
 // Events: Add / removeEventListener
 // Observer pattern: Subscribe / unsubscribe
@@ -20,21 +20,45 @@ import { useEffect, useState } from "react";
 // 3.useEffect(callback, [deps])
 //-----------------------------
 //1.Callback luôn được gọi mỗi khi component mounted
+// 2. Cleanup function luôn được gọi trước khi Component unmounted 
+// 3. Cleanup function luôn được gọi mỗi trước khi callback được gọi
+
+
 
 function Content() {
-    const [count, setCount] = useState(0);
+    const [avatar, setAvartar] = useState();
+
 
     useEffect(() => {
-        console.log("Component re-rendered");
-    }, [])
+        return () => {
+            avatar && URL.revokeObjectURL(avatar.linkimg);
+        }
+
+    }, [avatar])
+
+    function handleAvatar(e) {
+        const file = e.target.files[0];
+        file.linkimg = URL.createObjectURL(file);
+
+        setAvartar(file);
+    }
+
+
 
 
     return (
         <div>
-            <h1>{count}</h1>
-            <button onClick={() => {
-                setCount(count + 1)
-            }}> Increase </button>
+            <input
+                type="file"
+                onChange={handleAvatar}
+            ></input>
+            {avatar &&
+                (<img
+                    src={avatar.linkimg}
+                    title="Super car"
+                ></img>)
+            }
+
         </div>
     )
 }

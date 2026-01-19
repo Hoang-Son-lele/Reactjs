@@ -22,14 +22,15 @@ function App() {
 export default App;
 */
 
-import Content from "./practive/useState";
+import Content from "./f8/useEffect";
+import Testing from "./practive/baitap";
 function App() {
 
 
   return (
     <div className="App">
 
-      <Content></Content>
+      <Testing />
 
     </div>
   );
