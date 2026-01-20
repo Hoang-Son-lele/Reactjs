@@ -22,15 +22,16 @@ function App() {
 export default App;
 */
 
-import Content from "./f8/useEffect";
-import Testing from "./practive/baitap";
+import LayoutEffect from "./f8/useLayoutEffect";
+import Referent from "./f8/useRef";
+
 function App() {
 
 
   return (
     <div className="App">
 
-      <Testing />
+      <Referent />
 
     </div>
   );
